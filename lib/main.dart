@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
 import 'package:wp_commerce_1/constants/I18n/Messages.dart';
-import 'package:wp_commerce_1/modules/screens/auth/base_auth.dart';
+import 'package:wp_commerce_1/modules/screens/product/list_products_screen.dart';
 
 
 void main() async {
@@ -14,7 +14,7 @@ void main() async {
   Hive.init(document.path);
 
   runApp(GetMaterialApp(
-    home: BaseAuth(),
+    home: ListProductsScreen(),
     translations: Messages(),
     // your translations
     locale: const Locale('pt', 'BR'),

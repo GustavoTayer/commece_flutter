@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
-import 'package:wp_commerce_1/modules/domain/service/auth_service.dart';
-import 'package:wp_commerce_1/modules/domain/service/impl/auth_service_impl.dart';
+import 'package:wp_commerce_1/modules/domain/service/impl/token_service.dart';
 
 class BaseHttp extends GetConnect {
-  AuthService authService = Get.put(AuthServiceImpl());
+  TokenService authService = Get.put(TokenService());
 
   @override
   void onInit() {

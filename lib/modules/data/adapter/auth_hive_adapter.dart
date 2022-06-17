@@ -3,7 +3,7 @@ import 'package:wp_commerce_1/modules/domain/repositories/auth_persistence.dart'
 
 class AuthHiveAdapter extends AuthPersistence {
   @override
-  Future<String> retrieveToken() async {
+  Future<String?> retrieveToken() async {
     var tokenBox = await _getBox();
     return tokenBox.get('value');
   }

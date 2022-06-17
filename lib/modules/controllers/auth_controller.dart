@@ -9,7 +9,7 @@ class AuthController extends GetxController {
   var token = "".obs;
   var user;
 
-  final AuthService authService = Get.put(AuthServiceImpl());
+  final AuthServiceImpl authService = Get.put(AuthServiceImpl());
 
   Future<void> signIn(
       {required String email,
@@ -19,7 +19,7 @@ class AuthController extends GetxController {
     loading = true.obs;
 
     try {
-      User result = await authService.login(email, password);
+      User? result = await authService.login(email, password);
       onSuccess();
 
       onSuccess('sucesso');
