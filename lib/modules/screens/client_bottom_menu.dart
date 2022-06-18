@@ -40,7 +40,7 @@ class ClientBottomMenu extends StatelessWidget {
                         size: 20.0,
                       ),
                     ),
-                    label: 'Produtos',
+                    label: 'product-menu'.tr,
                     backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
                   ),
                   BottomNavigationBarItem(
@@ -51,7 +51,7 @@ class ClientBottomMenu extends StatelessWidget {
                         size: 20.0,
                       ),
                     ),
-                    label: 'Perfil',
+                    label: 'user-menu'.tr,
                     backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
                   ),
                   // BottomNavigationBarItem(

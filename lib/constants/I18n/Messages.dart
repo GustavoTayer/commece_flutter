@@ -11,7 +11,9 @@ class Messages extends Translations {
       'email': 'E-mail',
       'forgot-password': 'Esqueci minha senha',
       'signup': 'Cadastre-se',
-      'brand': 'Visual Code '
+      'brand': 'Visual Code ',
+      'product-menu': 'Produtos',
+      'user-menu': 'Meu Perfil'
     }
   };
 
