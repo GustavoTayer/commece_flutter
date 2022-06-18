@@ -9,6 +9,7 @@ class ListProductsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     ProductsController productsController = Get.put(ProductsController());
     productsController.getProducts();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('brand'.tr),

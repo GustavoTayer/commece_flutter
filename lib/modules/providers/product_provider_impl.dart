@@ -12,6 +12,7 @@ class ProductProviderImpl extends ProductProvider {
   Future<List<Product>> getProducts() async {
     var request = await http.get("/wc/store/products");
     if(request.hasError) {
+      print(request.body);
       throw BadRequestException("eita");
     }
     var algo = List.from(request.body);

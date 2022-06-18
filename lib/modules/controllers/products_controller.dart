@@ -6,11 +6,12 @@ import 'package:wp_commerce_1/modules/domain/service/product_service.dart';
 class ProductsController extends GetxController {
 
   ProductService productService = Get.put(ProductServiceImpl());
-  List<Product> products = <Product>[].obs;
+  var products = <Product>[].obs;
 
   Future<void> getProducts() async {
-    var algo = await productService.getProducts();
-    print(algo);
-    products = algo.obs;
+    var productsResponse = await productService.getProducts();
+    products = productsResponse.obs;
+    print(products);
+    update();
   }
 }

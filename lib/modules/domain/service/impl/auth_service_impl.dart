@@ -8,20 +8,20 @@ import 'package:wp_commerce_1/modules/domain/service/auth_service.dart';
 import 'package:wp_commerce_1/modules/providers/auth_provider_impl.dart';
 
 class AuthServiceImpl extends AuthService {
-
-  // final AuthPersistence authPersistence = Get.put(AuthHiveAdapter());
+  final AuthPersistence authPersistence = Get.put(AuthHiveAdapter());
   final AuthProvider authProvider = Get.put(AuthProviderImpl());
 
   @override
   Future<User?> login(String username, String password) async {
-    // Response<String> tokenResponse = await authProvider.login(username, password);
-    // if(tokenResponse.isOk) {
-    //   var token = tokenResponse.body!;
-    //   authPersistence.storeToken(token);
-    //   return authProvider.decodeJWT(token);
-    // } else {
-    //   throw BadRequestException("Senha/Usuário inválido");
-    // }
+    Response<String> tokenResponse =
+        await authProvider.login(username, password);
+    if (tokenResponse.hasError) {
+      throw BadRequestException("Senha/Usuário inválido");
+    }
+
+    var token = tokenResponse.body!;
+    authPersistence.storeToken(token);
+    return authProvider.decodeJWT(token);
   }
 
   @override
@@ -29,5 +29,4 @@ class AuthServiceImpl extends AuthService {
     // TODO: implement signup
     throw UnimplementedError();
   }
-
 }
