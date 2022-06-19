@@ -39,7 +39,16 @@ class Home extends StatelessWidget {
     return Scaffold(
       // Use Obx(()=> to update Text() whenever count is changed.
       appBar: AppBar(title: Obx(() => Text("Clicks: ${c.count}"))),
-
+      actions: [
+      IconButton(
+        onPressed: () {
+          ShowSearch(
+            context: context,
+            delegate: CustomSearchDelegate(),);
+        },
+          icon: const Icon(Icons.Search),
+      ),
+      ],
       // Replace the 8 lines Navigator.push by a simple Get.to(). You don't need context
       body: Center(
         child: ElevatedButton(
@@ -55,6 +64,75 @@ class Home extends StatelessWidget {
       ),
     );
   }
+}
+
+class CustomSearchDelegate extends SearchDelegate {
+List<String> searchTerms = [
+  'mochila',
+  'camiseta',
+];
+
+@override
+List<widget> buildActions(BuildContext context) {
+  return [
+    IconButton(
+      icon: const Icon(Icons.clear),
+      onPressed: (){
+        query = '';
+      },
+    ),
+  ];
+}
+
+@override
+widget buildLeading(BuildContext context) {
+  return IconButton(
+    icon: const Icon(Icons.arrow_back),
+    onPressed: () {
+      close(context, null);
+    },
+  );
+}
+
+@override
+widget buildResults(BuildContext context) {
+  list<String> matchQuery = [];
+  for (var roupas in searchTerms) {
+    if (roupas,toLowerCase().contains(query.toLowerCase())) {
+      matchQuery.add(roupas);
+    }
+  }
+  return ListView.builder(
+    itemCount: matchQuery.length, 
+    itemBuilder: (context, index) {
+      var result = matchQuery[index];
+      return ListTile(
+        title: Text(result),
+      );
+    },
+  );
+}
+
+@override
+widget buildSuggestions(BuildContext context) {
+  List<String> matchQuery = [];
+  for (var roupas in searchTerms) {
+    if (roupas.toLowerCase().contains(query.toLowerCase())) {
+      matchQuery.add(roupas);
+    }
+  }
+  return ListView.builder(
+    itemCount: matchQuery.length,
+    itemBuilder: (context, index) {
+      var result = matchQuery[index];
+      return ListTile(
+        title: Text(result),
+      );
+    },
+  );
+  
+}
+
 }
 
 class Other extends StatelessWidget {
