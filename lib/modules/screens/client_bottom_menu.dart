@@ -54,28 +54,6 @@ class ClientBottomMenu extends StatelessWidget {
                     label: 'user-menu'.tr,
                     backgroundColor: const Color.fromRGBO(36, 54, 101, 1.0),
                   ),
-                  // BottomNavigationBarItem(
-                  //   icon: Container(
-                  //     margin: EdgeInsets.only(bottom: 7),
-                  //     child: Icon(
-                  //       Icons.location_history,
-                  //       size: 20.0,
-                  //     ),
-                  //   ),
-                  //   label: 'Places',
-                  //   backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
-                  // ),
-                  // BottomNavigationBarItem(
-                  //   icon: Container(
-                  //     margin: EdgeInsets.only(bottom: 7),
-                  //     child: Icon(
-                  //       Icons.settings,
-                  //       size: 20.0,
-                  //     ),
-                  //   ),
-                  //   label: 'Settings',
-                  //   backgroundColor: Color.fromRGBO(36, 54, 101, 1.0),
-                  // ),
                 ],
               ),
             )));

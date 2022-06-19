@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:wp_commerce_1/modules/controllers/products_controller.dart';
+import 'package:wp_commerce_1/modules/domain/model/Product.dart';
 
 class ListProductsScreen extends StatelessWidget {
   const ListProductsScreen({Key? key}) : super(key: key);
@@ -16,19 +17,28 @@ class ListProductsScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: GetBuilder<ProductsController>(
-          builder: (_dx) {
-            print("algo aconteceu");
-            return ListView.builder(
-              itemCount: _dx.products.length,
-              itemBuilder: (context, index) {
-                return Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(_dx.products[index].name),
-                  ),
-                );
-              },
-            );
+          builder: (dx) {
+            return GridView.count(
+                crossAxisCount: 2,
+                children: List.generate(dx.products.length, (index) {
+                  Product product = dx.products[index];
+                  return Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Center(
+                          child: Column(
+                        children: [
+                          Image.network(
+                            product.images[0].src,
+                            height: 120,
+                          ),
+                          Text(product.name),
+                          Text(product.price.toString())
+                        ],
+                      )),
+                    ),
+                  );
+                }));
           },
         ),
       ),

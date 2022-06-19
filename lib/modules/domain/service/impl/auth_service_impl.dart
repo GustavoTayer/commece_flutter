@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:wp_commerce_1/modules/data/adapter/auth_hive_adapter.dart';
-import 'package:wp_commerce_1/modules/domain/exceptions/bad_request_exceptin.dart';
+import 'package:wp_commerce_1/modules/domain/exceptions/bad_request_exception.dart';
 import 'package:wp_commerce_1/modules/domain/model/user.dart';
 import 'package:wp_commerce_1/modules/domain/providers/auth_provider.dart';
 import 'package:wp_commerce_1/modules/domain/repositories/auth_persistence.dart';

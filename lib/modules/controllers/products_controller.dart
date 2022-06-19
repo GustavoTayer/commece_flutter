@@ -11,7 +11,6 @@ class ProductsController extends GetxController {
   Future<void> getProducts() async {
     var productsResponse = await productService.getProducts();
     products = productsResponse.obs;
-    print(products);
     update();
   }
 }
